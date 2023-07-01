@@ -4,10 +4,6 @@ const CampoTexto = (props) => {
 
     const placeholderModificada = `${props.placeholder}...` //não é obrigatório, mas é normal criar constantes para adicionar como propriedades
 
-    const aoDigitado = (e) => {
-        props.aoAlterado(e.target.value)
-    }
-
     return (
         <div className="campo-texto">   
             <label>{props.label}</label>
