@@ -3,9 +3,8 @@ import Botao from "../Botao"
 import CampoTexto from "../CampoTexto"
 import ListaSuspensa from "../ListaSuspensa"
 import "./Formulario.css"
-import CampoTeste from "../CampoTeste"
 
-const Formulario = () => {
+const Formulario = (props) => {
 
     const times = [
         'Programação',
@@ -25,6 +24,7 @@ const Formulario = () => {
     const aoSalvar = (evento) => {
         evento.preventDefault()
         console.log("Form foi submetido =>", nome, cargo, imagem, time)
+        props.aoColaboradorCadastrado({nome, cargo, imagem, time})
     }
     //JSX:
     return (
@@ -58,9 +58,6 @@ const Formulario = () => {
                     Criar Card
                 </Botao>
 
-                <CampoTeste label="Teste"
-                            aoAlterado={valor => console.log(valor)}
-                />
             </form>
         </section>
     )
