@@ -48,7 +48,8 @@ function App() {
 
   const aoNovoColaboradorAdicionado = (colaborador) => {
     console.log(colaborador)
-    setColaboradores([...colaboradores, colaborador])//Novo array, expalhando aqui dentro os colaboradores antigos e colocando o que acabou de chegar no final. Dessa forma obtem-se um array novo com todos os colaboradores. Essa sintaxe é a mesma coisa de ter criado uma variavel temporária, feito o push com o novo colaborador e passado essa nova variavel como argumento do setColaboradores
+    setColaboradores([...colaboradores, colaborador])//Spread Operator: Novo array, expalhando aqui dentro os colaboradores antigos e colocando o que acabou de chegar no final. Dessa forma obtem-se um array novo com todos os colaboradores. Essa sintaxe é a mesma coisa de ter criado uma variavel temporária, feito o push com o novo colaborador e passado essa nova variavel como argumento do setColaboradores
+    console.log('%cApp.js line:52 Colaboradores', 'color: #007acc;', colaboradores);
   }
 
   return (
