@@ -1,9 +1,9 @@
 import "./Colaborador.css"
 
-const Colaborador = ({nome, imagem, cargo}) => { //Aqui, é possível utilizar um operador javascript de desestruturação. Para isso é só substituir o props pelos nomes de suas propriedades, tudo isso entre chaves ({})
+const Colaborador = ({nome, imagem, cargo, corDeFundo}) => { //Aqui, é possível utilizar um operador javascript de desestruturação. Para isso é só substituir o props pelos nomes de suas propriedades, tudo isso entre chaves ({})
     return (
-        <div className="colaborador">
-            <div className="cabecalho">
+        <div className="colaborador" >
+            <div className="cabecalho" style={{ backgroundColor: corDeFundo}}>
                 <img src={imagem} alt={nome} />
             </div>
             <div className="rodape">
