@@ -1,0 +1,17 @@
+.rodape {
+    background-color: #6278F7;
+    color: #FFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 80px;
+}
+.organoLogo {
+
+}
+.redes ul {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+}

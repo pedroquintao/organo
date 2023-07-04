@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Banner from './componentes/Banner';
 import Formulario from './componentes/Formulario';
 import Time from './componentes/Time';
+import Rodape from './componentes/Rodape';
 
 
 function App() {
@@ -49,15 +50,21 @@ function App() {
   const aoNovoColaboradorAdicionado = (colaborador) => {
     console.log(colaborador)
     setColaboradores([...colaboradores, colaborador])//Spread Operator: Novo array, expalhando aqui dentro os colaboradores antigos e colocando o que acabou de chegar no final. Dessa forma obtem-se um array novo com todos os colaboradores. Essa sintaxe é a mesma coisa de ter criado uma variavel temporária, feito o push com o novo colaborador e passado essa nova variavel como argumento do setColaboradores
-    console.log('%cApp.js line:52 Colaboradores', 'color: #007acc;', colaboradores);
   }
+  console.log('%cApp.js line:52 Colaboradores', 'color: #007acc;', colaboradores);
 
   return (
     <div className="App">
       <Banner />
       <Formulario nomesDostimes={times.map(time => time.nome)} aoColaboradorCadastrado={colaborador => aoNovoColaboradorAdicionado(colaborador)}/>
-      {times.map(time => <Time key={time.nome} nome={time.nome} corPrimaria={time.corPrimaria} corSecundaria={time.corSecundaria}/>)}
-
+      {times.map(time => <Time 
+      key={time.nome} 
+      nome={time.nome} 
+      corPrimaria={time.corPrimaria} 
+      corSecundaria={time.corSecundaria}
+      colaboradores={colaboradores.filter(colaborador => colaborador.time === time.nome)}
+      />)/*Em resumo, nessa linha foi feita uma conversão do array de objetos JSON para um padrão de componente. Ou seja, cada objeto json foi convertido em um componente que cada propriedade representa uma propriedade do objeto JSON. Além disso, foi utilizado um filter na propriedade colaboradores, dessa forma, cada vez que uma area de um time for criada, só serão adicionados à essa lista os coloboradores que pertencem àquele time*/} 
+      <Rodape />
     </div>
   );
 }
